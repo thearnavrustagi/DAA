@@ -21,7 +21,7 @@ template<Sortable T>
 int partition(T* array, int left, int right, int *middle)
 {
  
-    T pivot = array[left];
+    T pivot = array[left+(right-left)/2];
     int l_itr = left;
     int r_itr = right;
     int comparisions = 0;
