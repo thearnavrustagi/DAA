@@ -8,6 +8,7 @@ int main(int argc, char** argv)
 {
 	int testcases;
 	std::cin >> testcases;
+	std::cout << testcases << std::endl;
 
 	for (int i=0;i<testcases;i++) {
 		int len;
@@ -19,9 +20,11 @@ int main(int argc, char** argv)
 			std::cin >> input;
 			array[i] = Complex(input);
 		}
+		
 
+		int comparisions = (argc-1 ? heapsort<Complex>(array,len) : quicksort<Complex>(array,0,len-1));
 		std::cout << len << ' ' 
-			<< (argc-1 ? heapsort<Complex>(array,len) : quicksort<Complex>(array,0,len))
+			<< comparisions
 			<< std::endl;
 	}
 

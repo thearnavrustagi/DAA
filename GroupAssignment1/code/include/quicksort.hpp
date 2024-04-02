@@ -1,4 +1,4 @@
- #ifndef QUICKSORT_H
+#ifndef QUICKSORT_H
 #define QUICKSORT_H
 
 #include "sortable.hpp"
@@ -20,15 +20,14 @@
 template<Sortable T>
 int partition(T* array, int left, int right, int *middle)
 {
- 
-    T pivot = array[left+(right-left)/2];
+    T pivot = array[left];
     int l_itr = left;
     int r_itr = right;
     int comparisions = 0;
 
     while (l_itr < r_itr) {
 	    while (!(array[l_itr] > pivot || l_itr > right)) ++comparisions && l_itr++;
-	    while (array[r_itr] > pivot && !(r_itr < left)) ++comparisions && r_itr--;
+	    while (array[r_itr] > pivot && r_itr >= left) ++comparisions && r_itr--;
 
 	    if (l_itr < r_itr) {
 		    swap(array[l_itr], array[r_itr]);

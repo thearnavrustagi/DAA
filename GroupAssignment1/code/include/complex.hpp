@@ -57,7 +57,10 @@ inline bool operator<(const Complex &a, const Complex &b)
 
 inline bool operator>(const Complex &a, const Complex &b)
 {
-	return -a < -b;
+	double norm1 = norm(a);
+	double norm2 = norm(b);
+
+	return norm1 != norm2 ? norm1 > norm2 : a.getReal() != b.getReal() ? a.getReal() > b.getReal() : a.getImaginary() != b.getImaginary() ? a.getImaginary() > b.getImaginary() : 0;
 }
 
 #endif

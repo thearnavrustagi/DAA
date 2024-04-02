@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+msize = 8
+
 if __name__ == "__main__":
     X,Y = [], []
     plot_title = input("enter plot title: ")
@@ -9,7 +11,7 @@ if __name__ == "__main__":
         x,y = int(x), int(y)
         X.append(x)
         Y.append(y)
-    plt.plot(X,Y, label="average case", marker=".", markersize=12)
+    plt.plot(X,Y, label="average case", marker=".", markersize=msize)
 
     X,Y = [], []
     for _ in range(int(input("number of test cases: "))):
@@ -17,7 +19,7 @@ if __name__ == "__main__":
         x,y = int(x), int(y)
         X.append(x)
         Y.append(y)
-    plt.plot(X,Y, label="best case", marker=".", markersize=12)
+    plt.plot(X,Y, label="best case", marker=".", markersize=msize)
 
     X,Y = [], []
     for _ in range(int(input("number of test cases: "))):
@@ -25,9 +27,10 @@ if __name__ == "__main__":
         x,y = int(x), int(y)
         X.append(x)
         Y.append(y)
-    plt.plot(X,Y, label="worst case", marker=".", markersize=12)
+    plt.plot(X,Y, label="worst case", marker=".", markersize=msize)
 
 
+    X = np.array(X)
     plt.xlabel("The input size")
     plt.ylabel("the number of comparisions")
     plt.legend()

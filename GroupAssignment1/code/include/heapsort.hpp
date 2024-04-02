@@ -52,6 +52,8 @@ int maxHeapify(T *array, int heapsize, int idx)
         swap(array[idx], array[maximum]);
         return comparisions + maxHeapify(array, heapsize, maximum);
     }
+
+    return comparisions;
 }
 
 /**
@@ -71,7 +73,8 @@ int buildHeap(T *array, int heapsize)
     int comparisions = 0;
     for (int idx = (heapsize / 2) + 1; idx > -1; idx--)
     {
-        comparisions += maxHeapify(array, heapsize, idx);
+        int c = maxHeapify(array, heapsize, idx);
+        comparisions += c;
     }
 
     return comparisions;
